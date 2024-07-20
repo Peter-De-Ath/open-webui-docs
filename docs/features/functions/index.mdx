@@ -1,0 +1,67 @@
+---
+sidebar_position: 1
+title: "Functions"
+---
+
+
+# Functions
+
+Functions are used to perform actions in Open WebUI. They can be used to perform a wide range of tasks, the are currently 3 types of functions:
+    - Actions
+    - Filters
+    - Pipes
+
+See our other project [Pipelines](https://github.com/open-webui/pipelines) for more examples of functions (advanced).
+
+
+## Function Formatting
+
+```
+"""
+title: Custom Action
+author: open-webui
+author_url: https://github.com/open-webui
+funding_url: https://github.com/open-webui
+version: 0.1.0
+icon_url: https://docs.openwebui.com/img/logo-dark.png
+required_open_webui_version: 0.3.9
+"""
+```
+
+The following fields are required for a function to be recognized by Open WebUI:
+    - `title`: The title of the function.
+    - `author`: The author of the function.
+    - `author_url`: The URL of the author's website or GitHub profile.
+    - `funding_url`: The URL of the author's funding page.
+    - `version`: The version of the function.
+    - `icon_url`: The URL of the function's icon. (this can also be a base64 encoded image)
+    - `required_open_webui_version`: The minimum version of Open WebUI required to run the function.
+
+
+# Event Emitter
+
+The Event Emitter function allows you to emit events to the client. This can be useful for sending messages to the client, such as progress on long running tasks.
+
+You can use the `__event_emitter__` function to emit an event to the client. The event type and data are passed as arguments to the function.
+
+## Status Updates
+
+Example usage
+```python
+await __event_emitter__(
+                {
+                    "type": "status",
+                    "data": {"description": "Running the task", "done": False},
+                }
+            )
+
+# do some other work
+
+await __event_emitter__(
+                {
+                    "type": "status",
+                    "data": {"description": "Task complete", "done": True},
+                }
+            )
+```
+![Event Emitter Image Example](/img/event_emitter_1.png)

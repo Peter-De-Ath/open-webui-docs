@@ -1,0 +1,25 @@
+---
+sidebar_position: 1
+title: "Filters"
+---
+
+# Filters
+
+Filter Functions have 2 main components:
+- Inlet: Incoming user messages before they are sent to the model.
+- Outlet: Outgoing assistant messages before they are sent to the user.
+
+Filters can be used to perform actions against incoming user messages (inlet) and outgoing (outlet) assistant messages. 
+Potential actions that can be taken in a filter include 
+- sending messages to monitoring platforms (such as Langfuse or DataDog)
+- modifying message contents
+- blocking toxic messages
+- translating messages to another language
+- rate limiting messages from certain users. 
+
+Checkout some examples on the [Community](https://openwebui.com/functions) with the `Filter` tag.
+
+After importing or creating a filter in Open WebUI, you will need to enable it.
+To do this go to Workspace -> Functions -> Toggle the filter you want to enable.
+    - You can mark a filter as global to apply it to all models.
+    - Alternatively you can apply a filter to a specific model selecting the filter in the model settings. Workspace -> Models -> Select the model -> Filters -> Select the filter/s you want to apply.
