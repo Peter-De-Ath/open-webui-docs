@@ -1,0 +1,56 @@
+To guide a user through creating a new filter, we need to understand the components and functionalities involved in each of the provided examples. 
+
+1. **Filter Example 1**: The `outlet` method from `langfuse_filter_pipeline.py` demonstrates an asynchronous function that processes incoming messages (`body`). It checks if there is an ongoing chat generation for the given `chat_id` and, if so, updates the usage cost based on the lengths of user and assistant messages. This example focuses on handling message processing and cost calculation within a chatbot pipeline.
+
+2. **Filter Example 2**: The `create_file` method from `cerebro.py` shows how to create a new file, presumably in a package management system. It accepts parameters for the package name, file name, title, content, and an optional user ID.
+
+3. **Filter Example 3**: The `filter_tools` function in `auto_tool_filter.py` filters tool lists based on a user-defined query. It searches through each tool's description for a match with the query string.
+
+Given these examples, let's create a tutorial to help a user understand how they can create a new filter:
+
+### Step-by-Step Guide: Creating a New Filter
+
+#### Understanding Filters
+In our application, filters are components that process data according to specific criteria. They are used in different parts of the system for tasks like message processing, file management, and tool filtering.
+
+#### Pre-requisites
+- Familiarity with the Python programming language.
+- Basic understanding of asynchronous programming in Python if your application uses `async` functions.
+
+#### Creating a New Filter
+
+##### Example: Custom Tool Filtering
+
+Let's create a filter to dynamically filter tools based on a user-defined query, similar to the `auto_tool_filter.py` example but for a different use case or criteria.
+
+1. **Define the Function Signature**
+   Start by defining a new method that takes in the necessary parameters. These will depend on what data you want to process and how you plan to filter it.
+
+   ```python
+   def custom_tool_filter(tools: List[Dict], query: str) -> List[Dict]:
+       ...
+   ```
+
+2. **Implement the Filtering Logic**
+   Inside the method, implement the logic to filter tools based on your criteria. For example, if you want to filter tools by a specific feature:
+
+   ```python
+   def custom_tool_filter(tools: List[Dict], query: str) -> List[Dict]:
+       filtered_tools = []
+       for tool in tools:
+           if query.lower() in tool.get("feature", "").lower():
+               filtered_tools.append(tool)
+       return filtered_tools
+   ```
+
+3. **Test Your Filter**
+   Before integrating your new filter into the system, test it thoroughly to ensure it works as expected.
+
+4. **Integrate and Document**
+   Once you're satisfied with the functionality, integrate your custom tool filter into the application's codebase. Document how to use your filter so other developers or users can understand its purpose and implementation details.
+
+#### Additional Resources
+- For more detailed examples or advanced features related to filters, refer to existing filter files in `langfuse_filter_pipeline.py`, `cerebro.py`, and `auto_tool_filter.py`.
+- The Python documentation on asynchronous programming (`async`/`await`) will be helpful if you need a deeper understanding of how to implement asynchronous functionality.
+
+This tutorial provides a basic overview of creating a new filter. Depending on your application's specific requirements, the implementation details may vary.

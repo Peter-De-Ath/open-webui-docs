@@ -6,6 +6,19 @@ title: "Functions"
 
 # Functions
 
+In the context of the provided code snippets, the terms "Pipe", "Filter", and "Action" can be understood as different components of a processing system that handles data flow.
+
+1. **Filter**: 
+   - A filter typically serves the purpose of modifying or validating input data before it is processed further. In the provided code, both the `Filter` classes in `charts.py` and `auto_memories.py` seem to represent filter functionalities that likely deal with the manipulation and validation of incoming data. The `inlet` method in both classes is designed to process the request body, allowing for checks and modifications before passing the data along to another system or API.
+
+2. **Pipe**: 
+   - While there isn't a direct representation of a "Pipe" in the provided code, generally, a pipe would be a mechanism to connect multiple filters (or other processing functions) in a sequence, where the output of one becomes the input of the next. This concept is often used in data processing to streamline operations and facilitate the flow of data through various transformations.
+
+3. **Action**: 
+   - An action typically refers to a function or method that performs a specific task resulting in some change in state or behavior, such as updating a database or sending a request to an API. In this context, action functions may not be explicitly detailed in your provided snippets but would follow the filtering steps, performing operations based on the filtered data.
+
+In summary, filters are responsible for validating and modifying data, pipes manage the flow between these filters, and actions execute tasks based on the processed data. To get more information about how these concepts are implemented in the specific context of your project, you may want to look into the documentation that explains the overall architecture of your application or check for additional modules or classes that define "Pipe" and "Action".
+
 Functions are used to perform actions in Open WebUI. They can be used to perform a wide range of tasks, the are currently 3 types of functions:
     - Actions
     - Filters
